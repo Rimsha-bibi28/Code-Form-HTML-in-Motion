@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML Essentials: Tables • Lists • Forms</title>
+    <meta
+      name="description"
+      content="A minimal website showcasing HTML tables, lists, and forms."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="container" id="top">
+      <h1>HTML Essentials <span>Tables • Lists • Forms</span></h1>
+      <p class="lead">
+        Practice project based on Afshan's session. Clean, semantic, and
+        accessible HTML.
+      </p>
+      <nav aria-label="Primary" class="nav">
+        <a href="#tables">Tables</a>
+        <a href="#lists">Lists</a>
+        <a href="#forms">Forms</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- Tables Section -->
+      <section id="tables" class="card" aria-labelledby="tables-title">
+        <h2 id="tables-title">📊 Tables</h2>
+        <p>
+          Accessible data tables use <code>&lt;caption&gt;</code>, proper header
+          cells, and scope attributes.
+        </p>
+
+        <div
+          class="table-wrap"
+          role="region"
+          aria-labelledby="employee-table-caption"
+          tabindex="0"
+        >
+          <table>
+            <caption id="employee-table-caption">
+              Employee Attendance — August
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Days Present</th>
+                <th scope="col">Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Ayesha</td>
+                <td>Frontend Dev</td>
+                <td>20</td>
+                <td>Excellent</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Bilal</td>
+                <td>Backend Dev</td>
+                <td>18</td>
+                <td>On track</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Chand</td>
+                <td>QA Engineer</td>
+                <td>22</td>
+                <td>Star performer</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="3">Average Days Present</th>
+                <td colspan="2">20</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <details class="hint">
+          <summary>Why use caption, thead, tbody, tfoot?</summary>
+          <p>
+            They improve accessibility, enable sticky headers with CSS, and make
+            data easier to parse.
+          </p>
+        </details>
+      </section>
+
+      <!-- Lists Section -->
+      <section id="lists" class="card" aria-labelledby="lists-title">
+        <h2 id="lists-title">📝 Lists</h2>
+        <p>Use different list types to convey hierarchy and meaning.</p>
+
+        <div class="grid-2">
+          <div>
+            <h3>Ordered List (Steps)</h3>
+            <ol>
+              <li>Plan content</li>
+              <li>Write semantic HTML</li>
+              <li>Style with CSS</li>
+              <li>Add behavior with JS</li>
+            </ol>
+          </div>
+          <div>
+            <h3>Unordered List (Features)</h3>
+            <ul>
+              <li>Responsive layout</li>
+              <li>Accessible components</li>
+              <li>Clean typography</li>
+              <li>Client-side validation</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Definition List (Glossary)</h3>
+        <dl class="glossary">
+          <dt>Table</dt>
+          <dd>Used to display tabular data with rows and columns.</dd>
+          <dt>List</dt>
+          <dd>Groups related items (ordered, unordered, or definitions).</dd>
+          <dt>Form</dt>
+          <dd>Collects user input and sends it to a server.</dd>
+        </dl>
+      </section>
+
+      <!-- Forms Section -->
+      <section id="forms" class="card" aria-labelledby="forms-title">
+        <h2 id="forms-title">📮 Contact Form</h2>
+        <p>
+          A basic form with labels, placeholders, validation, and an accessible
+          error summary.
+        </p>
+
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="e.g., Mishi"
+              required
+              minlength="2"
+            />
+            <small class="error" data-for="name"></small>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+            <small class="error" data-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Tables</option>
+              <option>Lists</option>
+              <option>Forms</option>
+            </select>
+            <small class="error" data-for="topic"></small>
+          </div>
+          <fieldset class="field">
+            <legend>Preferred Contact</legend>
+            <label
+              ><input type="radio" name="contact" value="email" required />
+              Email</label
+            >
+            <label
+              ><input type="radio" name="contact" value="phone" /> Phone</label
+            >
+          </fieldset>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Type your message…"
+              required
+            ></textarea>
+            <small class="error" data-for="message"></small>
+          </div>
+          <div class="actions">
+            <button type="submit">Send Message</button>
+            <button type="reset" class="secondary">Reset</button>
+          </div>
+          <p id="formStatus" role="status" aria-live="polite" tabindex="-1"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="container">
+      <p>Built for Afshan's class • <a href="#top">Back to top</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
